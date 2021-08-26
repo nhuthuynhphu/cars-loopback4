@@ -1,3 +1,4 @@
+require('dotenv').config();
 import {ApplicationConfig, CarsLoopback4Application} from './application';
 
 export * from './application';
