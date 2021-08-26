@@ -23,7 +23,7 @@ import {CarsRepository} from '../repositories';
 export class CarsController {
   constructor(
     @repository(CarsRepository)
-    public carsRepository : CarsRepository,
+    public carsRepository: CarsRepository,
   ) {}
 
   @post('/cars')
@@ -37,7 +37,6 @@ export class CarsController {
         'application/json': {
           schema: getModelSchemaRef(Cars, {
             title: 'NewCars',
-            exclude: ['id'],
           }),
         },
       },
@@ -52,9 +51,7 @@ export class CarsController {
     description: 'Cars model count',
     content: {'application/json': {schema: CountSchema}},
   })
-  async count(
-    @param.where(Cars) where?: Where<Cars>,
-  ): Promise<Count> {
+  async count(@param.where(Cars) where?: Where<Cars>): Promise<Count> {
     return this.carsRepository.count(where);
   }
 
@@ -70,9 +67,7 @@ export class CarsController {
       },
     },
   })
-  async find(
-    @param.filter(Cars) filter?: Filter<Cars>,
-  ): Promise<Cars[]> {
+  async find(@param.filter(Cars) filter?: Filter<Cars>): Promise<Cars[]> {
     return this.carsRepository.find(filter);
   }
 
@@ -106,7 +101,7 @@ export class CarsController {
   })
   async findById(
     @param.path.number('id') id: number,
-    @param.filter(Cars, {exclude: 'where'}) filter?: FilterExcludingWhere<Cars>
+    @param.filter(Cars, {exclude: 'where'}) filter?: FilterExcludingWhere<Cars>,
   ): Promise<Cars> {
     return this.carsRepository.findById(id, filter);
   }

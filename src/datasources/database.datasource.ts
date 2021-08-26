@@ -5,8 +5,8 @@ const config = {
   name: 'database',
   connector: 'mongodb',
   url: `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cars-nestjs.kc0ek.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`,
-  host: '',
-  database: '',
+  host: 'myserver',
+  database: 'cars-nestjs',
   protocol: 'mongodb+srv',
   useNewUrlParser: true,
 };
